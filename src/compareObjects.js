@@ -9,13 +9,10 @@ const compareObjects = (obj1, obj2) => {
         obj1[el] === obj2[el]
           ? `  ${el}: ${obj1[el]}\n`
           : `- ${el}: ${obj1[el]}\n+ ${el}: ${obj2[el]}\n`;
-      return acc;
     } else if (firstKeys.includes(el) && !secondKeys.includes(el)) {
       acc += `- ${el}: ${obj1[el]}\n`;
-      return acc;
     } else if (!firstKeys.includes(el) && secondKeys.includes(el)) {
       acc += `+ ${el}: ${obj2[el]}\n`;
-      return acc;
     }
     return acc;
   }, '');
