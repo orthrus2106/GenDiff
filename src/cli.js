@@ -1,5 +1,6 @@
 import { Command } from 'commander';
 import fileParser from './fileParser.js';
+import compareObjects from './compareObjects.js';
 
 const program = new Command();
 
@@ -12,8 +13,7 @@ program
   .action((filepath1, filepath2) => {
     const file1 = fileParser(filepath1);
     const file2 = fileParser(filepath2);
-    console.log(JSON.stringify(file1, null, 2));
-    console.log(JSON.stringify(file2, null, 2));
+    console.log(compareObjects(file1, file2));
   })
   .helpOption('-V, --version', 'output the version number')
   .option('-f, --format [type]', 'output format')
