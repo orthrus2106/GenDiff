@@ -5,18 +5,17 @@ const compareObjects = (obj1, obj2) => {
   const uniqueKeys = [...new Set(allKeys)].sort();
   const result = uniqueKeys.reduce((acc, el) => {
     if (firstKeys.includes(el) && secondKeys.includes(el)) {
-      acc +=
-        obj1[el] === obj2[el]
-          ? `  ${el}: ${obj1[el]}\n`
-          : `- ${el}: ${obj1[el]}\n+ ${el}: ${obj2[el]}\n`;
+      acc.push(obj1[el] === obj2[el]
+        ? `  ${el}: ${obj1[el]}`
+        : `- ${el}: ${obj1[el]}\n+ ${el}: ${obj2[el]}`);
     } else if (firstKeys.includes(el) && !secondKeys.includes(el)) {
-      acc += `- ${el}: ${obj1[el]}\n`;
+      acc.push(`- ${el}: ${obj1[el]}`);
     } else if (!firstKeys.includes(el) && secondKeys.includes(el)) {
-      acc += `+ ${el}: ${obj2[el]}\n`;
+      acc.push(`+ ${el}: ${obj2[el]}`);
     }
     return acc;
-  }, '');
-  return `{\n${result}}`;
+  }, []);
+  return `{\n${result.join('\n')}\n}`;
 };
 
 export default compareObjects;
