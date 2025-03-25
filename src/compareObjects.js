@@ -6,12 +6,12 @@ const compareObjects = (obj1, obj2) => {
   const result = uniqueKeys.reduce((acc, el) => {
     if (firstKeys.includes(el) && secondKeys.includes(el)) {
       acc.push(obj1[el] === obj2[el]
-        ? `  ${el}: ${obj1[el]}`
-        : `- ${el}: ${obj1[el]}\n+ ${el}: ${obj2[el]}`);
+        ? `    ${el}: ${obj1[el]}`
+        : `  - ${el}: ${obj1[el]}\n  + ${el}: ${obj2[el]}`);
     } else if (firstKeys.includes(el) && !secondKeys.includes(el)) {
-      acc.push(`- ${el}: ${obj1[el]}`);
+      acc.push(`  - ${el}: ${obj1[el]}`);
     } else if (!firstKeys.includes(el) && secondKeys.includes(el)) {
-      acc.push(`+ ${el}: ${obj2[el]}`);
+      acc.push(`  + ${el}: ${obj2[el]}`);
     }
     return acc;
   }, []);
