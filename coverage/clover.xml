@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1743009859804" clover="3.2.0">
+  <project timestamp="1743009859805" name="All files">
+    <metrics statements="14" coveredstatements="14" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2" elements="30" coveredelements="29" complexity="0" loc="14" ncloc="14" packages="1" files="1" classes="1"/>
+    <file name="compareObjects.js" path="/home/orthrus/frontend-project-46/src/compareObjects.js">
+      <metrics statements="14" coveredstatements="14" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="3" count="1" type="stmt"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="5" count="1" type="stmt"/>
+      <line num="6" count="1" type="stmt"/>
+      <line num="7" count="5" type="cond" truecount="4" falsecount="0"/>
+      <line num="8" count="2" type="cond" truecount="2" falsecount="0"/>
+      <line num="11" count="3" type="cond" truecount="4" falsecount="0"/>
+      <line num="12" count="2" type="stmt"/>
+      <line num="13" count="1" type="cond" truecount="3" falsecount="1"/>
+      <line num="14" count="1" type="stmt"/>
+      <line num="16" count="5" type="stmt"/>
+      <line num="18" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>
