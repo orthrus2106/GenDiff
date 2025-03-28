@@ -1,6 +1,7 @@
 import { Command } from 'commander';
 import fileParser from './fileParser.js';
 import compareObjects from './compareObjects.js';
+import stylish from './stylish.js';
 
 const program = new Command();
 
@@ -13,7 +14,8 @@ program
   .action((filepath1, filepath2) => {
     const file1 = fileParser(filepath1);
     const file2 = fileParser(filepath2);
-    console.log(compareObjects(file1, file2));
+    const result = compareObjects(file1, file2);
+    console.log(stylish(result));
   })
   .helpOption('-V, --version', 'output the version number')
   .option('-f, --format [type]', 'output format')
