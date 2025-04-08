@@ -1,8 +1,6 @@
 import { Command } from 'commander';
 import fileParser from './fileParser.js';
 import compareObjects from './compareObjects.js';
-import stylish from './formatters/stylish.js';
-import plain from './formatters/plain.js';
 import formatCase from './formatters/index.js';
 
 const program = new Command();
