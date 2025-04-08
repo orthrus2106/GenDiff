@@ -1,7 +1,8 @@
 import { Command } from 'commander';
-import fileParser from './fileParser.js';
-import compareObjects from './compareObjects.js';
-import formatCase from './formatters/index.js';
+// import fileParser from './fileParser.js';
+// import compareObjects from './compareObjects.js';
+// import formatCase from './formatters/index.js';
+import gendiff from './index.js';
 
 const program = new Command();
 
@@ -10,21 +11,9 @@ program
   .description('Compares two configuration files and shows a difference.')
   .version('1.0.0')
   .option('-f, --format [type]', 'output format', 'stylish')
-  .action(() => {
-    const { args } = program;
-
-    if (args.length < 2) {
-      console.log('Error: need two files');
-      process.exitCode = 1;
-      return;
-    }
-
-    const [filepath1, filepath2] = args;
-    const file1 = fileParser(filepath1);
-    const file2 = fileParser(filepath2);
-    const diffTree = compareObjects(file1, file2);
-    const { format } = program.opts();
-    console.log(formatCase(diffTree, format));
+  .arguments('<filepath1> <filepath2>')
+  .action((filepath1, filepath2, options) => {
+    console.log(gendiff(filepath1, filepath2, options.format));
   })
   .helpOption('-V, --version', 'output the version number')
   .helpOption('-h, --help', 'display help for command');
