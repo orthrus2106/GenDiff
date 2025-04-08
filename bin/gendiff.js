@@ -17,4 +17,4 @@ program
   .helpOption('-V, --version', 'output the version number')
   .helpOption('-h, --help', 'display help for command');
 
-program.parse(process.argv);
+program.parse();
