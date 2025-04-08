@@ -3,7 +3,8 @@ import path from 'path';
 import fs from 'fs';
 import yaml from 'js-yaml';
 import compareObjects from '../src/compareObjects.js';
-import stylish from '../src/stylish.js';
+import stylish from '../src/formatters/stylish.js';
+import plain from '../src/formatters/plain.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -51,5 +52,20 @@ test('compare two depth json objects', () => {
     'utf-8',
   ).trim();
   const result = stylish(compareObjects(file1, file2));
+  expect(result).toBe(expected);
+});
+
+test('compare two depth json objects plain format', () => {
+  const file1 = JSON.parse(
+    fs.readFileSync(getFixturePath('testing-files/file1_json_deep.json'), 'utf-8'),
+  );
+  const file2 = JSON.parse(
+    fs.readFileSync(getFixturePath('testing-files/file2_json_deep.json'), 'utf-8'),
+  );
+  const expected = fs.readFileSync(
+    getFixturePath('expected/expected_plain.txt'),
+    'utf-8',
+  );
+  const result = plain(compareObjects(file1, file2));
   expect(result).toBe(expected);
 });

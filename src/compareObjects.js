@@ -1,5 +1,12 @@
 import _ from 'lodash';
-import createTree from './utils/createTree.js';
+
+const createTree = (key, type, value1 = null, value2 = null, children = null) => ({
+  key,
+  type,
+  value1,
+  value2,
+  children,
+});
 
 const compareObjects = (obj1, obj2, depth = 1) => {
   const firstKeys = Object.keys(obj1);
@@ -15,8 +22,7 @@ const compareObjects = (obj1, obj2, depth = 1) => {
       if (obj1[key] === obj2[key]) {
         acc.push(createTree(key, 'unchanged', obj1[key]));
       } else {
-        acc.push(createTree(key, 'removed', obj1[key]));
-        acc.push(createTree(key, 'added', null, obj2[key]));
+        acc.push(createTree(key, 'updated', obj1[key], obj2[key]));
       }
     } else if (firstKeys.includes(key) && !secondKeys.includes(key)) {
       acc.push(createTree(key, 'removed', obj1[key]));
