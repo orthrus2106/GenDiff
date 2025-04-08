@@ -5,6 +5,7 @@ import yaml from 'js-yaml';
 import compareObjects from '../src/compareObjects.js';
 import stylish from '../src/formatters/stylish.js';
 import plain from '../src/formatters/plain.js';
+import json from '../src/formatters/json.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -40,7 +41,7 @@ test('compare two flat yaml objects', () => {
   expect(result).toBe(expected);
 });
 
-test('compare two depth json objects', () => {
+test('compare two depth json objects stylish format', () => {
   const file1 = JSON.parse(
     fs.readFileSync(getFixturePath('testing-files/file1_json_deep.json'), 'utf-8'),
   );
@@ -67,5 +68,20 @@ test('compare two depth json objects plain format', () => {
     'utf-8',
   );
   const result = plain(compareObjects(file1, file2));
+  expect(result).toBe(expected);
+});
+
+test('compare two depth json objects json format', () => {
+  const file1 = JSON.parse(
+    fs.readFileSync(getFixturePath('testing-files/file1_json_deep.json'), 'utf-8'),
+  );
+  const file2 = JSON.parse(
+    fs.readFileSync(getFixturePath('testing-files/file2_json_deep.json'), 'utf-8'),
+  );
+  const expected = fs.readFileSync(
+    getFixturePath('expected/expected_json.txt'),
+    'utf-8',
+  );
+  const result = json(compareObjects(file1, file2));
   expect(result).toBe(expected);
 });
