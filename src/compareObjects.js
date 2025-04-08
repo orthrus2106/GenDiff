@@ -1,4 +1,4 @@
-import _, { sortBy } from 'lodash';
+import _ from 'lodash';
 
 const createTree = (key, type, value1 = null, value2 = null, children = null) => ({
   key,
@@ -12,7 +12,7 @@ const compareObjects = (obj1, obj2, depth = 1) => {
   const firstKeys = Object.keys(obj1);
   const secondKeys = Object.keys(obj2);
   const allKeys = _.union(firstKeys, secondKeys);
-  const uniqueKeys = sortBy(allKeys);
+  const uniqueKeys = _.sortBy(allKeys);
   const result = uniqueKeys.reduce((acc, key) => {
     if (_.isPlainObject(obj1[key]) && _.isPlainObject(obj2[key])) {
       const childrens = compareObjects(obj1[key], obj2[key], depth + 1);
