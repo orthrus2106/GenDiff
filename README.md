@@ -2,6 +2,8 @@
 [Video](https://asciinema.org/a/aa9lib00XAZPxUOc8khogpaPu)
 ## 🎥 Demonstration of deep comparing:
 [Video](https://asciinema.org/a/bKpsVpJTrXGZ83pc72YLzH45m)
+## 🎥 Demonstration of deep comparing plain format:
+[Video](https://asciinema.org/a/vWrBk2Ze5NgmYkn408w9tgKpY)
 ### Hexlet tests and linter status:
 [![Actions Status](https://github.com/orthrus2106/frontend-project-46/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/orthrus2106/frontend-project-46/actions)
 ### Test coverage:
