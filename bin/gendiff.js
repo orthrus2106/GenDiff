@@ -11,8 +11,8 @@ program
   .version('1.0.0')
   .option('-f, --format [type]', 'output format', 'stylish')
   .arguments('<filepath1> <filepath2>')
-  .action((filepath1, filepath2, options) => {
-    console.log(gendiff(filepath1, filepath2, options.format));
+  .action((filepath1, filepath2) => {
+    console.log(gendiff(filepath1, filepath2, program.opts().format));
   })
   .helpOption('-V, --version', 'output the version number')
   .helpOption('-h, --help', 'display help for command');
