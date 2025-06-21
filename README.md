@@ -12,7 +12,6 @@ Avilable three output formats: `stylish`, `plain`,  `json`.
 git https://github.com/orthrus2106/GenDiff.git
 cd GenDiff
 make install
-npm link # Install as a global package
 ```
 
 ## Usage
